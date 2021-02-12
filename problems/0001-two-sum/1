@@ -1,0 +1,13 @@
+from typing import List
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        output = []
+        for item in nums:
+            print(item)
+        return 0
+
+nums = [2,7,11,15]
+target = 9
+instance = Solution()
+output = instance.twoSum(nums, target)
