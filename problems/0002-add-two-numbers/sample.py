@@ -13,24 +13,21 @@ class Solution:
         instance = ListNode()
         current = instance
         carry = 0
-        l = len(l1) - len(l2)
 
-        if l > 0:
-            arr = [0] * (l)
-            l1.extend([0])
-            l2.extend(arr)
-        elif l < 0:
-            arr = [0] * (-l)
-            l2.extend([0])
-            l1.extend(arr)
-        else:
-            l1.extend([0])
-            l2.extend([0])
+        while l1.next != None and l2.next != None:
+            if l1.next != None:
+                l1_v = l1.val
+                l1 = l1.next
+            else:
+                l1_v=0
 
-        length = int((len(l1) + len(l2))/2)
+            if l2.next != None:
+                l2_v = l2.val
+                l2 = l2.next
+            else:
+                l2_v=0
 
-        for i in range(length):
-            total = l1[i] + l2[i] + carry
+            total = l1_v + l2_v + carry
             carry = int(total/10)
             current.next = ListNode(total%10)
             current = current.next
@@ -42,16 +39,30 @@ class Solution:
         return instance.next
 
 # output = 708
-#l1 = [2,4,3]
-#l2 = [5,6,4]
+#l1_list = [2,4,3]
+#l2_list = [5,6,4]
 # output = 0
-#l1 = [0]
-#l2 = [0]
+l1_list = [0]
+l2_list = [0]
 # output = 89990001
-l2 = [9,9,9,9,9,9,9]
-l1 = [9,9,9,9]
+#l2 = [9,9,9,9,9,9,9]
+#l1 = [9,9,9,9]
+
+l1 = ListNode()
+l1_current = l1
+l2 = ListNode()
+l2_current = l2
+
+for i in range(len(l1_list)):
+    l1_current.next = ListNode(l1_list[i])
+    l1_current = l1_current.next
+
+for i in range(len(l2_list)):
+    l2_current.next = ListNode(l2_list[i])
+    l2_current = l2_current.next
+
 instance = Solution()
-obj = instance.addTwoNumbers(l1, l2)
+obj = instance.addTwoNumbers(l1.next, l2.next)
 
 while obj.next != None:
     print(obj.val, end='')
