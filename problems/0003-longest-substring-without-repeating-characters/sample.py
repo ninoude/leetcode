@@ -1,4 +1,3 @@
-from IPython import embed
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         p=0
@@ -24,8 +23,3 @@ class Solution:
                 if  max < tmp:
                     max = tmp
         return max
-
-sample = Solution()
-#print(sample.lengthOfLongestSubstring("abcabcbb"))
-#print(sample.lengthOfLongestSubstring("bb"))
-print(sample.lengthOfLongestSubstring("pwwkew"))
