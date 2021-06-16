@@ -1,4 +1,3 @@
-from IPython import embed
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
         if len(s) <= numRows: return s
