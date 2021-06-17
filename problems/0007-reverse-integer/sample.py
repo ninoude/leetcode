@@ -17,6 +17,6 @@ class Solution:
             output = int(output_str)
 
 #        if output < -2**31 or 2**31-1 < output:
-         if output < -2147483648 or 2147483647 < output:
+        if output < -2147483648 or 2147483647 < output:
             return 0
         return output
