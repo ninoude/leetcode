@@ -7,34 +7,23 @@ from typing import Optional
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        current = head
-        head_len = 0
+        if head.next == None:
+            return None
+        tmp = head
+        size = 0
 
-        while current.next != None:
-            current = current.next
-            head_len += 1
+        # find the size of the linked list
+        while tmp:
+            size += 1
+            tmp = tmp.next
+        tmp = head
 
-        pop_index = head_len + 1 - n
+        #if we have to remove the first node:
+        if n == size:
+            return head.next
 
-        current = head
-        ln_len = 0
-
-        answer = ListNode()
-        answer_current = answer
-
-        while current.next != None:
-            if ln_len == pop_index:
-                current = current.next
-                ln_len += 1
-                continue
-            answer_current.next = ListNode(current.val)
-            answer_current = answer_current.next
-            current = current.next
-            ln_len += 1
-
-        if ln_len == pop_index:
-            return answer.next
-        else:
-            answer_current.next = ListNode(current.val)
-            return answer.next
+        for i in range(size-n-1):
+            tmp = tmp.next
+        tmp.next = tmp.next.next
+        return head
 
