@@ -11,4 +11,4 @@ spec:
     name: python
     command: ["/bin/sh", "-c"]
     args:
-      - sleep 7d;
+      - sleep inf;
